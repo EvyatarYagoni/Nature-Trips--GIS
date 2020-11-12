@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- leaflet  doc  link  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <!-- leaflet links -->
+    <link rel="stylesheet" href="/leaflet.css">
+    <link rel="stylesheet" href="/L.Control.Locate.min.css">
+    <link rel="stylesheet" href="/qgis2web.css">
+    <link rel="stylesheet" href="/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/leaflet-search.css">
+    <link rel="stylesheet" href="/leaflet-control-geocoder.Geocoder.css">
+    <link rel="stylesheet" href="/leaflet-measure.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/popup.css">
+    <link rel="stylesheet" href="/stories.css">
+    <link rel="stylesheet" href="/comment-box.css">
+    <link rel="stylesheet" href="/map-buttons.css">
+    <link rel="stylesheet" href="/header-img.css">
+
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+
+    <!-- font aowsome link -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Righteous&display=swap"
+        rel="stylesheet">
+
+    <title>NATURE TRIPS</title>
+    <!-- <a class="btn btn-secondery bg-light btn-sm ml-1 mt-1" role="button">Log Out</a></div> -->
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+        <a class="navbar-brand" href="https://lit-refuge-55830.herokuapp.com/map"><i class="fas fa-map"
+                id="fa-map"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" id="nav-link" href="https://lit-refuge-55830.herokuapp.com/map"><i
+                            class="fas fa-home"></i>
+                        עמוד הבית<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-link" href=" #comments-section"> <i class="fas fa-comment"></i>
+                        תגובות</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-link" href=" https://lit-refuge-55830.herokuapp.com/login"><i
+                            class="fas fa-sign-out-alt"></i> התנתק </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <header class="header mb-5">
+        <div class="title-box">
+            <h1 class="heading-primary mb-4">
+                <span class="heading-primary_main" id="heading-primary_main">מסלולי טבע</span>
+                <span class="heading-primary_sub" id="heading-primary_sub">הכל במקום אחד</span>
+            </h1>
+            <a href="#dropdown-return" class="btn-header btn-header-white btn-animated" id="btn-header">חפש את המסלול
+                שלך</a>
+        </div>
+    </header>
+
+
+
+    <div class="map-title mb-5">
+        <h3 class="map-title_secondery" id="map-title_secondery"> בחר את האזור המועדף עליך ומצא את המסלול המתאים לך</h3>
+    </div>
+
+    <div class="map-buttons">
+
+        <!-- רשימת נחלים של הדרום -->
+        <div class="dropdown text-right south-button" id="dropdown-return">
+            <a class="map-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                דרום
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#dropdownMenuButton" id="einGedi">עין גדי</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="porat">נחל פורת</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="habasor">נחל הבשור ופארק אשכול</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="hawarim">נחל חווארים</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="redMall">הקניון האדום</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="mesada">מצדה</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="shivta">שיבטה</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="og">נחל אוג</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="barak">נחל ברק והר כיפה</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="gov">נחל גוב</a>
+            </div>
+        </div>
+
+
+        <!-- רשימה נחלים של המרכז -->
+        <div class="dropdown text-center">
+            <a class="map-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                מרכז
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#dropdownMenuButton" id="sorek">נחל שורק וחוף פלמחים</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="hsharon">שמורת חוף השרון</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="katlev">נחל קטלב</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="halilim">נחל חלילים</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="itab">בית עיטאב</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="govrin">מערות בית גוברין</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="hnadiv">רמת הנדיב</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="azov">נחל אזוב</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="alon">נחל אלון</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="yarkon">מקורות הירקון</a>
+            </div>
+        </div>
+
+
+        <!-- רשימת נחלים של הצפון -->
+        <div class="dropdown text-left north-button">
+            <a class="map-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                צפון
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#dropdownMenuButton" id="shofet">נחל השופט</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="kaziv">נחל כזיב</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="gilabon">נחל ג'ילבון</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="zvitan">נחל זוויתן</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="horwim">נחל עורבים</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="roshPina">נחל ראש פינה</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="zalmon">נחל צלמון</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="ayun">נחל עיון ומפל התנור</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="dorBeach">חוף דור הבונים</a>
+                <a class="dropdown-item" href="#dropdownMenuButton" id="zipori">נחל ציפורי</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!----------------------------------------------------------------------->
+
+    <!-- leaflet map -->
+    <div class="row">
+        <div id="map" class="col-xs-12"></div>
+
+        <!-- <div class="text-center col-sm-12">
+            <a type="button" class="map-btn text-center btn-after-map" href="#dropdown-return">חזרה
+                לבחירת
+                מסלול חדש</a>
+        </div> -->
+    </div>
+
+
+
+
+    <!-- COMMENT SECTION  -->
+    <section class="comment-box pb-5 mt-5" id="comments-section">
+        <div class="bg-video">
+            <video
+                src="https://storage.coverr.co/videos/rhOM3iuhDqxedD7lKLpPO34yN2lhf5Kk?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MDgxNjg4fQ.licxYpMCbSlEPOESjDOxpgx0NJWNh14KidSd5Op0qj0"
+                class="bg-video_content" autoplay loop muted>דפדפן זה אינו תומך בוידאו מסוג זה!
+            </video>
+        </div>
+
+        <div>
+            <h2 class="story_header mb-3 pt-5 text-center">המלצות</h2>
+        </div>
+
+        <div class="story text-right mb-5" id="story-1" dir="rtl">
+            <h5 class="story_title mb-3" id="story_title-1">
+                אבי לוי
+            </h5>
+            <p class="story_text" id="story_text-1"> הייתי בנחל כזיב נחל שקט וכיפי. <br>
+                המלצה חמה לכל המטיילים לטייל באזור זה, אתם לא תתאכזבו. </p>
+        </div>
+
+        <div class="story text-right" id="story-2" dir="rtl">
+            <h5 class="story_title mb-3" id="story_title-2">
+                לינוי גפני
+            </h5>
+            <p class="story_text" id="story_text-2"> הקניון האדום שווה כל רגע וזמן.
+                <br> נוף עוצר נשימה, דברים שלא רואים בכל יום
+                ממליצה להצטייד בהמון מים כי חם מאוד ולשים קרם הגנה לבוא עם המון מצב רוח !!! </p>
+        </div>
+
+        <form action="/commentsList">
+            <button class="my-btn">...עוד תגובות</button>
+        </form>
+        <!-- <button class="my-btn" href="#http://localhost:3000/commentsList">...עוד תגובות</button> -->
+
+
+        <form class="form-block" id="form-section" action="/map" method="POST">
+            <div class="add-comment mt-5">
+                <i class="fa fa-user"></i>
+                <input class="comment-input" name="fullName" dir="rtl" type="text" placeholder="שם מלא:"
+                    id="nameComment" required="">
+                <i class="fa fa-envelope-o"></i>
+                <textarea class="comment-text-area" dir="rtl" name="text" required="" placeholder="כתוב תגובה..."
+                    id="textComment"></textarea>
+                <div class="text-center add-story-btn">
+                    <button type="submit" class="my-btn">הוסף תגובה</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+
+        <!-- <i class="fas fa-leaf footer_item"></i> -->
+        <ul class="footer_nav">
+            <li class="footer_nav_item"><a href="#popup" class="footer_nav_link"><i class="fas fa-user-secret"></i>
+                    מדיניות
+                    פרטיות</a></li>
+            <li class="footer_nav_item"><a href="tel:0541234567" class="footer_nav_link"><i class="fas fa-phone"></i>
+                    טלפון</a></li>
+            <li class="footer_nav_item"><a href="mailto:someone@yoursite.com" class="footer_nav_link"><i
+                        class="fas fa-envelope"></i> מייל</a></li>
+        </ul>
+    </footer>
+
+
+
+
+    <!-- POPUP PRIVACY POLICY SECTION -->
+    <div class="popup" id="popup">
+        <div class="popup_content">
+            <h3 class="title-policy" dir="rtl">מדיניות פרטיות</h3>
+            <p class="policy" dir="rtl">
+                החוק קובע (בסעיפים 4 ו-5), כי פגיעה בפרטיות מהווה עוולה אזרחית, אשר פקודת הנזיקין חלה עליה. כמו כן,
+                פגיעה בפרטיות מהווה גם עבירה פלילית, שהעונש המקסימלי בגינה הוא 5 שנות מאסר, בתנאי שהפגיעה בפרטיות נעשתה
+                במזיד. הפרת חובת סודיות מכוח הסכם אינה מהווה עבירה פלילית.
+                אין להשתמש בתוכן האתר לשום מטרה כלל.
+
+            </p>
+            <a href="#footer" class="popup-exit">&#x2715</a>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- leaflet js file -->
+    <script src="/qgis2web_expressions.js"></script>
+    <script src="/leaflet.js">  </script>
+    <script src="/L.Control.Locate.min.js"></script>
+    <script src="/leaflet.rotatedMarker.js"></script>
+    <script src="/leaflet.pattern.js"></script>
+    <script src="/leaflet-hash.js"></script>
+    <script src="/Autolinker.min.js"></script>
+    <script src="/rbush.min.js"></script>
+    <script src="/labelgun.min.js"></script>
+    <script src="/labels.js"></script>
+    <script src="/leaflet-control-geocoder.Geocoder.js"></script>
+    <script src="/leaflet-measure.js"></script>
+    <script src="/leaflet-search.js"></script>
+    <script src="/Tracks_1.js"></script>
+
+    <!-- script for initial map -->
+    <script src="/initMap.js"></script>
+
+
+    <!-- bootstrap js link -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+
+    <!-- my script -- לחצני צפון, מרכז, דרום והמעבר לפה בלחיצה -->
+    <script src="/buttons.js"></script>
+
+</body>
+
+</html>

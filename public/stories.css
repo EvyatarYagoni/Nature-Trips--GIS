@@ -1,0 +1,131 @@
+.add-story-btn{
+    grid-row: 3/4;
+    grid-column: 2/-1;
+}
+
+
+
+.comment-box{
+    display: grid;
+    grid-template-columns:  1fr;
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.comment-input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.comment-text-area{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.story{
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    padding: 1rem 3rem; 
+
+    transform: skewX(-12deg);
+}
+
+
+.story_title{
+    transform: skewX(12deg);
+    color: #474b4e;
+    background-color: transparent;
+    opacity: 1;
+    border-radius: 0;
+}
+.story_text{
+    transform: skewX(12deg);
+    font-size: 0.8rem;
+    color: #474b4e;
+}
+
+
+/* VIDEO BACKGROUND */
+.bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: .7;
+}
+
+bg-video_content{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+
+.story-input{
+    border-radius: 8px;
+}
+
+.fa{
+    color:white;
+}
+/* /////////////////////////////////////////////////////////////////////////////////// */
+.my-btn{
+    display: inline-block;
+    color: white;
+    background-color: transparent;
+    outline-offset: 1rem;
+   border-bottom:3px solid #55c57a;
+   transition: all .2s;
+}
+
+.my-btn:link,
+.my-btn:visited{
+    text-decoration: none;
+    /* background-color: #55c57a; */
+    background-color: transparent;
+    color: #55c57a;
+}
+
+.my-btn:hover
+{
+    text-decoration: none;
+    transform: translateY(2px);
+    background-color:#55c57a;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer
+}
+
+.my-btn:active{
+    transform: translateY(1px);
+}
+
+
+/* ADD COMMENT  */
+.add-comment{
+    display: grid;
+    grid-template-columns: min-content minmax(10rem ,1fr );
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin-right: 2rem;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- leaflet  doc  link  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <!-- leaflet links -->
+    <link rel="stylesheet" href="/leaflet.css">
+    <link rel="stylesheet" href="/L.Control.Locate.min.css">
+    <link rel="stylesheet" href="/qgis2web.css">
+    <link rel="stylesheet" href="/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/leaflet-search.css">
+    <link rel="stylesheet" href="/leaflet-control-geocoder.Geocoder.css">
+    <link rel="stylesheet" href="/leaflet-measure.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/popup.css">
+    <link rel="stylesheet" href="/stories.css">
+    <link rel="stylesheet" href="/comment-box.css">
+    <link rel="stylesheet" href="/map-buttons.css">
+    <link rel="stylesheet" href="/header-img.css">
+    <link rel="stylesheet" href="/comments-page.css">
+
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+
+    <!-- font aowsome link -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Righteous&display=swap"
+        rel="stylesheet">
+
+
+    <title>Comments List</title>
+</head>
+
+<body>
+
+    <section class="comment-box-list " id="comments-section">
+        <div class="bg-video-list">
+            <video
+                src="https://storage.coverr.co/videos/rhOM3iuhDqxedD7lKLpPO34yN2lhf5Kk?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MDgxNjg4fQ.licxYpMCbSlEPOESjDOxpgx0NJWNh14KidSd5Op0qj0"
+                class="bg-video_content-list" autoplay loop muted>דפדפן זה אינו תומך בוידאו מסוג זה!
+            </video>
+        </div>
+
+        <div class="close-comments-list">
+            <a href="https://lit-refuge-55830.herokuapp.com/map" class="close-more-comments"><i
+                    class="fas fa-window-close close-more-comments-icon"></i></a>
+        </div>
+
+        <div>
+            <h2 class="story_header mb-3 pt-5 text-center">המלצות נוספות</h2>
+        </div>
+
+
+        <!-- <% for(var i=0;i < CommentsList.length;i++) { %>
+        <div class="be-comment">
+            <div class="be-comment-content">
+                <span class="be-comment-time">
+                    <i class="fa fa-clock-o" id="date"></i> <%= CommentsList[i].date %> </span>
+                <span class="be-comment-name text-right"><span> <%= CommentsList[i].username %> </span></span>
+                <p class="be-comment-text" dir="rtl"> <%= CommentsList[i].text %></p>
+            </div>
+        </div>
+        <% } %> -->
+
+
+        <% for(var i=0;i < CommentsList.length;i++) { %>
+        <div class="story text-right mb-5" id="story-1" dir="rtl">
+            <h5 class="story_title mb-3" id="story_title-1">
+                <%= CommentsList[i].username %> </h5>
+            <p class="story_text" id="story_text-1"><%= CommentsList[i].text %></p>
+        </div>
+        <% } %>
+
+
+        <!-- <button class="my-btn" href="#">...עוד תגובות</button> -->
+
+
+        <form class="form-block" id="form-section" action="/commentsList" method="POST">
+            <div class="add-comment mb-5">
+                <i class="fa fa-user"></i>
+                <input class="comment-input" name="fullName" dir="rtl" type="text" placeholder="שם מלא:"
+                    id="nameComment" required="">
+                <i class="fa fa-envelope-o"></i>
+                <textarea class="comment-text-area" dir="rtl" name="text" required="" placeholder="כתוב תגובה..."
+                    id="textComment"></textarea>
+                <div class="text-center add-story-btn">
+                    <button type="submit" class="my-btn">הוסף תגובה</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+</body>
+
+</html>

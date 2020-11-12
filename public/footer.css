@@ -1,0 +1,33 @@
+
+.footer_nav{
+    list-style: none;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem,1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    padding: 4rem;
+
+    background-color:#343a40;
+}
+
+
+.footer_nav_link{
+    display: inline-block;
+    color:  #55c57a;
+    background-color: transparent;
+    outline-offset: 1rem;
+   border-bottom:3px solid #55c57a;
+   transition: all .2s;
+}
+
+.footer_nav_link:hover{
+    text-decoration: none;
+    background-color: #55c57a;
+    color: #000000;
+    border-bottom: 1px solid #000000 ;
+    padding: 2px;
+    border-radius: 5px;
+}
+

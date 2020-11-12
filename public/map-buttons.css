@@ -1,0 +1,18 @@
+.map-buttons{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1rem,1fr));
+    /* gap: 3rem; */
+    align-items: center;
+    justify-items: center;
+    margin:1rem auto;
+    margin-bottom: 1.5rem;
+}
+
+.south-button{
+    justify-self: end;
+}
+
+
+.north-button{
+    justify-self: start;
+}
