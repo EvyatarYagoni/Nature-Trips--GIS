@@ -1,5 +1,5 @@
 # Nature-Trips-GIS
-+ The project deals with the geographical mapping of nature trips in Israel and their presentation to the site visitor.
++ The project deals with the geographical mapping of nature routes in Israel and their presentation to the site visitor.
 + In addition, the site presents an option for the hiker to choose a nature route by region and shows him pictures of the place, a YouTube video, the presentation of the route on the map and the route features that are very important for each hiker .
 + <a href="https://lit-refuge-55830.herokuapp.com/login" target="_blank">Link for my website (ctrl + click for new tab)</a>
 
