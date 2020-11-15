@@ -65,7 +65,7 @@ Thanks!
 
 ## How to use?
 <ul>
-  <li><a href="https://drive.google.com/file/d/1qCWhzcHkqx_Hb69tHty2ixizDrXoe2r0/view"> Click here for a tutorial video in Hebrew
+  <li><a href="https://drive.google.com/file/d/1fCDVFW2fa063um5jiG-vpehMJ_fkspPs/view?usp=sharing"> Click here for a tutorial video in Hebrew
  </a></li>
 </ul>
 
